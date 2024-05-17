@@ -1,0 +1,86 @@
+
+MariaDB [(none)]> USE dbtoko;
+Database changed
+MariaDB [dbtoko]> desc pelanggan;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nama   | varchar(45) | NO   |     | NULL    |                |
+| alamat | text        | NO   |     | NULL    |                |
+| hp     | varchar(45) | NO   | UNI | NULL    |                |
+| email  | varchar(45) | NO   | UNI | NULL    |                |
+| foto   | varchar(45) | NO   |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+6 rows in set (0.048 sec)
+
+MariaDB [dbtoko]> desc pesanan;
++--------------+---------+------+-----+---------+-------+
+| Field        | Type    | Null | Key | Default | Extra |
++--------------+---------+------+-----+---------+-------+
+| kode         | char(5) | NO   | UNI | NULL    |       |
+| tgl          | date    | NO   |     | NULL    |       |
+| produk_id    | int(11) | NO   | PRI | NULL    |       |
+| pelanggan_id | int(11) | NO   | PRI | NULL    |       |
+| jumlah       | int(11) | NO   |     | NULL    |       |
+| keterangan   | text    | NO   |     | NULL    |       |
++--------------+---------+------+-----+---------+-------+
+6 rows in set (0.036 sec)
+
+MariaDB [dbtoko]> desc produk;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| kode     | char(5)     | NO   | UNI | NULL    |                |
+| nama     | varchar(45) | NO   |     | NULL    |                |
+| kondisi  | varchar(45) | NO   |     | NULL    |                |
+| harga    | double      | NO   |     | NULL    |                |
+| stok     | int(11)     | NO   |     | NULL    |                |
+| foto     | varchar(45) | YES  |     | NULL    |                |
+| jenis_id | int(11)     | NO   | MUL | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+8 rows in set (0.086 sec)
+
+MariaDB [dbtoko]> desc retur;
++----------------------+-------------+------+-----+---------+----------------+
+| Field                | Type        | Null | Key | Default | Extra          |
++----------------------+-------------+------+-----+---------+----------------+
+| id                   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| kode                 | char(5)     | NO   | UNI | NULL    |                |
+| tgl                  | date        | NO   |     | NULL    |                |
+| jumlah               | int(11)     | NO   |     | NULL    |                |
+| foto                 | varchar(45) | NO   |     | NULL    |                |
+| pesanan_produk_id    | int(11)     | NO   | MUL | NULL    |                |
+| pesanan_pelanggan_id | int(11)     | NO   |     | NULL    |                |
++----------------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.048 sec)
+
+MariaDB [dbtoko]> desc suplayer;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nama    | varchar(45) | NO   |     | NULL    |                |
+| alamat  | text        | NO   |     | NULL    |                |
+| hp      | varchar(45) | NO   | UNI | NULL    |                |
+| email   | varchar(45) | NO   | UNI | NULL    |                |
+| website | varchar(45) | NO   |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.064 sec)
+
+MariaDB [dbtoko]> desc suplay_produk;
++-------------+---------+------+-----+---------+-------+
+| Field       | Type    | Null | Key | Default | Extra |
++-------------+---------+------+-----+---------+-------+
+| kode        | char(5) | NO   |     | NULL    |       |
+| tgl         | date    | NO   |     | NULL    |       |
+| suplayer_id | int(11) | NO   | PRI | NULL    |       |
+| produk_id   | int(11) | NO   | PRI | NULL    |       |
+| jumlah      | int(11) | NO   |     | NULL    |       |
+| keterangan  | text    | NO   |     | NULL    |       |
++-------------+---------+------+-----+---------+-------+
+6 rows in set (0.060 sec)
+ 
+ 
+ 
